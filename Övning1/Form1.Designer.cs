@@ -36,10 +36,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.BtnBoka = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbxResor = new System.Windows.Forms.ListBox();
+            this.BtnSök = new System.Windows.Forms.Button();
             this.tbxNamn = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.BtnSök = new System.Windows.Forms.Button();
-            this.lbxResor = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,6 +120,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Resor";
             // 
+            // lbxResor
+            // 
+            this.lbxResor.FormattingEnabled = true;
+            this.lbxResor.Location = new System.Drawing.Point(24, 56);
+            this.lbxResor.Name = "lbxResor";
+            this.lbxResor.Size = new System.Drawing.Size(173, 134);
+            this.lbxResor.TabIndex = 11;
+            // 
+            // BtnSök
+            // 
+            this.BtnSök.Location = new System.Drawing.Point(168, 21);
+            this.BtnSök.Name = "BtnSök";
+            this.BtnSök.Size = new System.Drawing.Size(62, 20);
+            this.BtnSök.TabIndex = 10;
+            this.BtnSök.Text = "Sök";
+            this.BtnSök.UseVisualStyleBackColor = true;
+            this.BtnSök.Click += new System.EventHandler(this.BtnSök_Click);
+            // 
             // tbxNamn
             // 
             this.tbxNamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -138,24 +156,6 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Namn";
             // 
-            // BtnSök
-            // 
-            this.BtnSök.Location = new System.Drawing.Point(168, 21);
-            this.BtnSök.Name = "BtnSök";
-            this.BtnSök.Size = new System.Drawing.Size(62, 20);
-            this.BtnSök.TabIndex = 10;
-            this.BtnSök.Text = "Sök";
-            this.BtnSök.UseVisualStyleBackColor = true;
-            this.BtnSök.Click += new System.EventHandler(this.BtnSök_Click);
-            // 
-            // lbxResor
-            // 
-            this.lbxResor.FormattingEnabled = true;
-            this.lbxResor.Location = new System.Drawing.Point(24, 56);
-            this.lbxResor.Name = "lbxResor";
-            this.lbxResor.Size = new System.Drawing.Size(173, 134);
-            this.lbxResor.TabIndex = 11;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +171,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
