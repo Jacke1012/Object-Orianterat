@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Övning1
 {
     public partial class Form1 : Form
     {
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects Second Drive\School Shit\Object Orianterat\Övning1\Resor.mdf;Integrated Security=True";
+        //string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=..\Resor.mdf;Integrated Security=True";
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\jacjon0310\source\repos\Object Orianterat(1)\Övning1\Resor.mdf;Integrated Security=True";
 
         public Form1()
         {
@@ -22,7 +17,7 @@ namespace Övning1
 
         private void BtnSök_Click(object sender, EventArgs e)
         {
-            
+            lbxResor.Items.Clear();
             string query = $"SELECT Destination, AntalDagar FROM Resor WHERE Namn ='{tbxNamn.Text}'";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
