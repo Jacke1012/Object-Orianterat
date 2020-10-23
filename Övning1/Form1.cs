@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
 using Parser;
+using MySql;
+using MySql.Data.MySqlClient;
 
 namespace Övning1
 {
@@ -14,6 +16,9 @@ namespace Övning1
 
         string hemConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects Second Drive\School Shit\Object Orianterat\Övning1\Resor.mdf;Integrated Security=True";
 
+        string mySql = @"server=127.0.0.1;uid=resor;pwd=lol;database=resor";
+        
+
         string connectionString;
 
         List<Resa> resor = new List<Resa>();
@@ -21,7 +26,7 @@ namespace Övning1
         public Form1()
         {
             InitializeComponent();
-            connectionString = hemConnection;
+            connectionString = mySql;
         }
 
 
@@ -38,10 +43,10 @@ namespace Övning1
             if (TryParse.Double(tbxAntalDagar, out temp))
             {
                 string query = $"INSERT Resor(Namn, Destination, AntalDagar) VALUES('{tbxKund.Text}','{tbxDestination.Text}','{temp}')";
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.CommandType = CommandType.Text;
                         command.ExecuteNonQuery();
@@ -65,12 +70,12 @@ namespace Övning1
         private void FetchFromDB()
         {
             string query = $"SELECT Namn,Destination, AntalDagar FROM Resor";
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                using (SqlCommand cmd = new SqlCommand(query, connection))
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         resor.Clear();
                         while (reader.Read())
