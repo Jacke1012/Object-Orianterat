@@ -12,7 +12,8 @@ namespace Övning1
     {
         string skolConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\jacjon0310\source\repos\Object Orianterat(1)\Övning1\Resor.mdf;Integrated Security=True";
 
-        string hemConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects Second Drive\School Shit\Object Orianterat\Övning1\Resor.mdf;Integrated Security=True";
+        //string hemConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects Second Drive\School Shit\Object Orianterat\Övning1\Resor.mdf;Integrated Security=True";
+        string hemConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|Resor.mdf;Integrated Security=True";
 
         string connectionString;
 
